@@ -1,0 +1,63 @@
+---
+title: "Template"
+author: "Kostas Moschonas"
+date: today
+date-format: "DD/MM/YYYY"
+format:  
+  html: 
+    smooth-scroll: true
+    toc: true
+    toc-depth: 3
+    toc-title: Contents
+  docx:
+    number-sections: true
+  pdf:
+    pdf-engine: xelatex
+    documentclass: scrartcl
+    mainfont: Arial
+    header-includes:
+     - \usepackage{fontspec} 
+     - \setmainfont{Arial}
+    geometry:
+      - top = 15 mm # margins
+      - bottom = 15 mm
+      - right = 15 mm
+      - left = 15 mm 
+    include-in-header:
+      - styles/in-header_custom_KM.tex 
+    colorlinks: true
+    number-sections: true
+    fontsize: 11pt
+    toc: false  # table of contents
+    toc-depth: 3
+    toc-title: Contents
+    lof: false  # list of figures
+    lot: false  # list of tables
+fig-align: center
+editor: visual
+bibliography: references.bib
+csl: european-heart-journal.csl # or other
+---
+
+Backup archive of a customised Quarto pdf template from [Saskia Otto's template](https://github.com/saskiaotto/UHHformats).
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).

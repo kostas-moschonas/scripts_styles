@@ -67,20 +67,19 @@ knitr::write_bib(
 
 Configure the YAML header including the following elements:
 
-- `title`: Title
-- `subtitle`: Subtitle; remove option completely if you don't need a subtitle.
-- `author`: Character of single or multiple author(s)
-- `date`: A date
-- `abstract`: The abstract will be shown right after the title in smaller font size. 
-- `language`: If language is NOT English refer to th file `custom_lang.yml` for automatic text in German. If the document language is another one, adjust this file.
-- `bibliography`: A path to the bibliography file to use for references (BibTeX `.bib` file). The current file includes 3 dummy references; either insert your references into this file or replace the file with your own.
-- `csl`: The style is provided in the 'sage-harvard.csl' file, which adopts the [SAGE Harvard](https://uk.sagepub.com/sites/default/files/sage_harvard_reference_style_0.pdf) reference style. Just leave the file as it is.
-- `format - pdf`: In this template many of the Quarto options for PDF output are listed in the YAML header. If you want to know more about these settings I recommend the [PDF format reference](https://quarto.org/docs/reference/formats/pdf.html) for a complete list of available options. For instance, you can adjust the figure and table references with `fig-title`, `tbl-title`, `fig-prefix`, and `tbl-prefix`.
-- `execute`: Global options for customizing output from executed code are specified within this execute key.
-- `fig-align`: Global settings for figure positioning. For other settings see the [PDF format reference](https://quarto.org/docs/reference/formats/pdf.html).
+-   `title`: Title
+-   `subtitle`: Subtitle; remove option completely if you don't need a subtitle.
+-   `author`: Character of single or multiple author(s)
+-   `date`: A date
+-   `abstract`: The abstract will be shown right after the title in smaller font size.
+-   `language`: If language is NOT English refer to th file `custom_lang.yml` for automatic text in German. If the document language is another one, adjust this file.
+-   `bibliography`: A path to the bibliography file to use for references (BibTeX `.bib` file). The current file includes 3 dummy references; either insert your references into this file or replace the file with your own.
+-   `csl`: The style is provided in the 'sage-harvard.csl' file, which adopts the [SAGE Harvard](https://uk.sagepub.com/sites/default/files/sage_harvard_reference_style_0.pdf) reference style. Just leave the file as it is.
+-   `format - pdf`: In this template many of the Quarto options for PDF output are listed in the YAML header. If you want to know more about these settings I recommend the [PDF format reference](https://quarto.org/docs/reference/formats/pdf.html) for a complete list of available options. For instance, you can adjust the figure and table references with `fig-title`, `tbl-title`, `fig-prefix`, and `tbl-prefix`.
+-   `execute`: Global options for customizing output from executed code are specified within this execute key.
+-   `fig-align`: Global settings for figure positioning. For other settings see the [PDF format reference](https://quarto.org/docs/reference/formats/pdf.html).
 
 The default font for this template is 'Helvetica' but can be replaced with the University's own font style 'TheSansUHH'. If you are associated with the UHH you are allowed to use this font. You can choose the font in the template when running the function, e.g., `UHHformats::create_quarto_doc(dirname = "pdf_simple_doc", template = "pdf_simple", font = "TheSansUHH")`.
-
 
 ## Code blocks
 
@@ -91,10 +90,9 @@ Code blocks in Quarto documents are treated in similar way as in Markdown docume
 summary(cars)
 ```
 
-Please note that individual words are separated with a hyphen, not a dot, followed by a colon, not an equal sign as in R Markdown documents. Quarto uses this approach to both better accommodate longer options like `fig-cap`, `fig-subcap`, and `fig-alt` as well as to make it straightforward to edit chunk options within more structured editors that don’t have an easy way to edit chunk metadata (e.g. most traditional notebook UIs).
+Please note that individual words are separated with a hyphen, not a dot, followed by a colon, not an equal sign as in R Markdown documents. Quarto uses this approach to both better accommodate longer options like `fig-cap`, `fig-subcap`, and `fig-alt` as well as to make it straightforward to edit chunk options within more structured editors that don't have an easy way to edit chunk metadata (e.g. most traditional notebook UIs).
 
-However, if you prefer it is still possible to include chunk options on the first line (e.g. ```{r, echo = FALSE}) as in R Markdown documents.
-
+However, if you prefer it is still possible to include chunk options on the first line (e.g. \`\`\`{r, echo = FALSE}) as in R Markdown documents.
 
 ## Callout blocks
 
@@ -110,7 +108,6 @@ The color and icon will be different depending upon the type that you select. Yo
 This is an example of a callout with a caption.
 :::
 
-
 # Methods
 
 ## Cross-references
@@ -125,10 +122,9 @@ This is for example a cross-reference to @tbl-kable in @sec-tables and a cross-r
 
 To create a reference-able code block, add a #lst-identifier along with a lst-cap attribute inside the curly braces (see code chunk example @lst-codeblock). Note that the indication of the programming language requires for this static code block a dot set before the 'r'.
 
-``` {.r #lst-codeblock lst-cap="Example for a referenceable code block"}
+``` {#lst-codeblock .r lst-cap="Example for a referenceable code block"}
 4+4
 ```
-
 
 ## Mathematical equations
 
@@ -156,32 +152,27 @@ $$
   F_{Y}(y)=\Phi(y) \stackrel{\mathrm{def}}{=} \int_{-\infty}^y \varphi(x) \,\mathrm{d}x, \quad y \in \mathbb{R}
 $$ {#eq-dist-func}
 
-
 represents then the distribution function of @eq-density-norm.
 
 The numbering of equations, as in @eq-density-norm, should only be done if they are referred to in the rest of the text. Especially if there are many equations in the thesis, the use of LaTeX seems to make more sense.
-
 
 ## Images
 
 Quarto includes several features aimed at making it easier to work with figures and subfigures, as well as for laying out panels that contain multiple figures, tables, or other content.
 
-[![Single image of Iris setosa with URL link but no cross-reference.](images/wikipedia_iris_setosa.jpg)](https://en.wikipedia.org/wiki/Iris_setosa){fig-align="left" fig-alt="Wikipedia image of Iris setosa."}
+[![Single image of Iris setosa with URL link but no cross-reference.](images/wikipedia_iris_setosa.jpg)](https://en.wikipedia.org/wiki/Iris_setosa)
 
 For instance, if you have several figures that appear as a group, you can create a figure div to enclose them (see @fig-versicolor and @fig-virginica).
 
-::: {layout-ncol=2 layout-valign="bottom"}
-
+::: {layout-ncol="2" layout-valign="bottom"}
 ![Iris versicolor](images/wikipedia_iris_versicolor.jpg){#fig-versicolor}
 
 ![Iris virginica](images/wikipedia_iris_virginica.jpg){#fig-virginica}
-
 :::
 
 The layout attribute enables the creation of much more complex layouts. @fig-custom-layout provides an example with a common figure caption and one identifier for all three.
 
 ::: {#fig-custom-layout layout="[20,-2,46,-2,30]" layout-valign="bottom"}
-
 ![Iris setosa](images/wikipedia_iris_setosa.jpg)
 
 ![Iris versicolor](images/wikipedia_iris_versicolor.jpg)
@@ -191,10 +182,9 @@ The layout attribute enables the creation of much more complex layouts. @fig-cus
 Custom layout of images
 :::
 
-
 <!-- This will start a new page (LaTeX code) -->
-\newpage
 
+\newpage
 
 # Results
 
@@ -208,19 +198,17 @@ mtcars <- read.csv("data/mtcars.csv")
 summary(mtcars[,1:4])
 ```
 
-
 ## Tables {#sec-tables}
 
 Here is a simple table based on Markdown Syntax (@tbl-markdown).
 
-| A            | New              | Table          |
-|:-------------|:----------------:|---------------:|
-|left-aligned  |center-aligned    |right-aligned   |
-|$123          |$456              |$789            |
-|*italics*     |~~strikethrough~~ |**boldface**    |
+| A            |        New        |         Table |
+|:-------------|:-----------------:|--------------:|
+| left-aligned |  center-aligned   | right-aligned |
+| \$123        |       \$456       |         \$789 |
+| *italics*    | ~~strikethrough~~ |  **boldface** |
 
 : My Caption {#tbl-markdown}
-
 
 ### Using the *knitr* package
 
@@ -239,7 +227,6 @@ knitr::kable(
 # (the last two options make the table a bit more readable)
 ```
 
-
 ### The *xtable* package
 
 Another useful package for tables for PDF output is [xtable](https://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.pdf). The following code will produce an example table if the *xtable* package is installed. Note that you need to add the chunk option `results = "asis"` inside `{r}` otherwise the PDF will contain the \LaTeX code of the table!
@@ -252,7 +239,6 @@ Another useful package for tables for PDF output is [xtable](https://cran.r-proj
 xt <- xtable::xtable(df)
 print(xt, comment = FALSE, caption.placement = "top", booktabs = TRUE)
 ```
-
 
 ## Figures {#sec-figures}
 
@@ -277,7 +263,6 @@ Here for comparison a boxplot with a different image height (@fig-boxplot).
 #| fig-width: 3
 boxplot(mpg ~ am, mtcars)
 ```
-
 
 ## Diagrams
 
@@ -306,9 +291,8 @@ Cell level options are here indicated with `%%|` instead of `#|`!
 
 Useful links:
 
-- [https://mermaid-js.github.io/mermaid/#/](https://mermaid-js.github.io/mermaid/#/)
-- [https://mermaid.live](https://mermaid.live)
-
+-   <https://mermaid-js.github.io/mermaid/#/>
+-   <https://mermaid.live>
 
 ### Graphviz
 
@@ -340,7 +324,6 @@ graph G {
 Cell level options are here indicated with `//|`!
 :::
 
-
 # Adding citations and bibliography
 
 Link a `.bib` document via the YAML header, and the bibliography will be printed at the end. The default bibliography style is provided in the `sage-harvard.csl` file (do not delete), which adopts the [SAGE Harvard](https://uk.sagepub.com/sites/default/files/sage_harvard_reference_style_0.pdf) reference style.
@@ -365,7 +348,9 @@ Here is a footnote reference[^1], and another[^2].
 
     Subsequent paragraphs are indented to show that they belong to the previous footnote.
 
-        { some.code }
+    ```         
+    { some.code }
+    ```
 
     The whole paragraph can be indented, or just the first line. In this way, multi-paragraph footnotes work like multi-paragraph list items.
 
@@ -381,4 +366,3 @@ Here is a footnote reference[^1], and another[^2].
 # Acknowledgments {.unnumbered .unlisted}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut elit odio. Donec fermentum tellus neque, vitae fringilla orci pretium vitae. Fusce maximus finibus facilisis. Donec ut ullamcorper turpis.
-

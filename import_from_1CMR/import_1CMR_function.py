@@ -41,7 +41,8 @@ def import_from_1cmr(relative_file_path,
     combined_df = pd.concat(data_list, ignore_index=True)
 
     combined_df = combined_df.drop(columns=[
-        'Patient_ID', 'Patient_DoB', 'LGE', 'Cardiac_Native_T1', 'Cardiac_ECV',
+        'Patient_ID',
+        'Patient_DoB', 'LGE', 'Cardiac_Native_T1', 'Cardiac_ECV',
         'Liver_Native_T1', 'Liver_ECV', 'Spleen_Native_T1', 'Spleen_ECV', 'T2'
     ])
 
