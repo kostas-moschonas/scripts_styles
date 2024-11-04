@@ -13,6 +13,8 @@ format:
     - right = 15 mm
     - left = 15 mm 
     number-sections: true
+    # include-in-header:
+    #   text: '\usepackage{lineno}\linenumbers' # add numbered lines
 editor: visual
 bibliography: references.bib
 csl: european-heart-journal.csl
